@@ -2,5 +2,6 @@
 .env.mysql
 .env.redis
 
+node_modules
 mysql
 redis

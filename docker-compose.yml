@@ -58,11 +58,9 @@ services:
 
   api:
     build: .
-    #tty: true
-    #command: bash
     command: sh -c "npm install nodemon -g && nodemon ."
     volumes:
-      - .:/src/app
+      - .:/usr/app
     ports:
       - ${PORT_SERVER}:${PORT_SERVER}
     env_file:
