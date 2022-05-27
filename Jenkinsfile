@@ -10,13 +10,14 @@ pipeline {
       steps {
         sh '''node --version
 '''
-        sh 'docker --version'
       }
     }
 
-    stage('scream') {
+    stage('build') {
+      agent any
       steps {
         sh 'echo "AAAAAAAAAAAAAAAAAAAAAAAA"'
+        sh 'docker --version'
       }
     }
 
