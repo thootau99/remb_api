@@ -6,6 +6,6 @@ const { record } = require('./route/record')
 app.use('/', record)
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`Example app listening on p ${port}`)
 })
 
