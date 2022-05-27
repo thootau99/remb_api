@@ -17,8 +17,10 @@ pipeline {
     stage('build') {
       agent any
       steps {
-        sh 'echo "AAAAAAAAAAAAAAAAAAAAAAAA"'
+        sh 'ls'
         sh 'docker --version'
+        sh 'docker build -t docker:5000/rembapi .'
+        sh ' docker push docker:5000/rembapi'
       }
     }
 
