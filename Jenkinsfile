@@ -13,5 +13,11 @@ pipeline {
       }
     }
 
+    stage('scream') {
+      steps {
+        sh 'echo "AAAAAAAAAAAAAAAAAAAAAAAA"'
+      }
+    }
+
   }
 }
