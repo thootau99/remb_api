@@ -25,6 +25,7 @@ pipeline {
     }
 
     stage('deploy') {
+      agent any
       steps {
         sh 'whoami'
       }
