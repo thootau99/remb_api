@@ -27,7 +27,9 @@ pipeline {
     stage('deploy') {
       agent any
       steps {
-        sh 'whoami'
+        sh 'cd ~/production'
+        sh 'docker pull'
+        sh 'docker-compose down && docker-compose up -d'
       }
     }
 
