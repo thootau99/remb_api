@@ -28,12 +28,8 @@ pipeline {
       steps {
         withCredentials([sshUserPrivateKey(credentialsId: 'SSHHOST', keyFileVariable: 'key')]) {
           // some block
-          sh 'ssh -i ${key} -oStrictHostKeyChecking=no thootau@192.168.76.252 \'cd ~/production\' '
+          sh 'ssh -i ${key} -oStrictHostKeyChecking=no thootau@192.168.76.252 \'cd ~/remb_production\' && docker pull '
         }
-        sh 'ls ~/.ssh'
-        sh 'ssh     -oStrictHostKeyChecking=no thootau@192.168.76.252 \'cd ~/production\' '
-        sh 'docker pull'
-        sh 'docker-compose down && docker-compose up -d'
       }
     }
 
