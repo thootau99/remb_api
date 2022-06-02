@@ -26,9 +26,10 @@ pipeline {
     stage('deploy') {
       agent any
       steps {
-        withCredentials([sshUserPrivateKey(credentialsId: 'SSHHOST', keyFileVariable: 'key')]) {
+        withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'SSHHOST', keyFileVariable: 'key')]) {
           sh 'ssh -i ${key} -oStrictHostKeyChecking=no thootau@192.168.76.252 "cd ~/remb_production;docker-compose pull"'
         }
+
       }
     }
 
