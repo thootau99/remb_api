@@ -32,7 +32,7 @@ pipeline {
 
       }
       steps {
-        sh 'cd ~/production'
+        sh 'ssh thootau@192.168.76.252 \'cd ~/production\' '
         sh 'docker pull'
         sh 'docker-compose down && docker-compose up -d'
       }
