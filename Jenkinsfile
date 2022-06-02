@@ -26,9 +26,9 @@ pipeline {
     stage('deploy') {
       agent any
       steps {
-        withCredentials([sshUserPrivateKey(credentialsId: 'SSHHOST', keyFileVariable: '')]) {
+        withCredentials([sshUserPrivateKey(credentialsId: 'SSHHOST', keyFileVariable: 'key')]) {
           // some block
-          sh 'ssh     -oStrictHostKeyChecking=no thootau@192.168.76.252 \'cd ~/production\' '
+          sh 'ssh -i ${key} -oStrictHostKeyChecking=no thootau@192.168.76.252 \'cd ~/production\' '
         }
         sh 'ls ~/.ssh'
         sh 'ssh     -oStrictHostKeyChecking=no thootau@192.168.76.252 \'cd ~/production\' '
