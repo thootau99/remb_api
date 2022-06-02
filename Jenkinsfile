@@ -27,8 +27,7 @@ pipeline {
       agent any
       steps {
         withCredentials([sshUserPrivateKey(credentialsId: 'SSHHOST', keyFileVariable: 'key')]) {
-          // some block
-          sh 'ssh -i ${key} -oStrictHostKeyChecking=no thootau@192.168.76.252 "cd ~/remb_production;docker pull"'
+          sh 'ssh -i ${key} -oStrictHostKeyChecking=no thootau@192.168.76.252 "cd ~/remb_production;docker-compose pull"'
         }
       }
     }
