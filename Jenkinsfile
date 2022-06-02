@@ -27,6 +27,7 @@ pipeline {
     stage('deploy') {
       agent any
       steps {
+        sh 'ls ~/.ssh'
         sh 'ssh     -oStrictHostKeyChecking=no thootau@192.168.76.252 \'cd ~/production\' '
         sh 'docker pull'
         sh 'docker-compose down && docker-compose up -d'
