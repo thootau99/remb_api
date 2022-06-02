@@ -26,7 +26,7 @@ pipeline {
     stage('deploy') {
       agent any
       steps {
-        withCredentials([sshUserPrivateKey(credentialsId: '5214bded-fe22-4e4c-b79b-bf80f5dde08a', keyFileVariable: '')]) {
+        withCredentials([sshUserPrivateKey(credentialsId: 'SSHHOST', keyFileVariable: '')]) {
           // some block
           sh 'ssh     -oStrictHostKeyChecking=no thootau@192.168.76.252 \'cd ~/production\' '
         }
