@@ -25,12 +25,7 @@ pipeline {
     }
 
     stage('deploy') {
-      agent {
-        node {
-          label 'SSH'
-        }
-
-      }
+      agent any
       steps {
         sh 'ssh thootau@192.168.76.252 \'cd ~/production\' '
         sh 'docker pull'
