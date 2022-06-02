@@ -9,8 +9,7 @@ pipeline {
 
       }
       steps {
-        sh '''node --version
-'''
+        sh 'node --version'
       }
     }
 
@@ -27,6 +26,9 @@ pipeline {
     stage('deploy') {
       agent any
       steps {
+        withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'HOST')]) {
+          sh 'ssh     -oStrictHostKeyChecking=no thootau@192.168.76.252 \'cd ~/production\' '
+        }
         sh 'ls ~/.ssh'
         sh 'ssh     -oStrictHostKeyChecking=no thootau@192.168.76.252 \'cd ~/production\' '
         sh 'docker pull'
